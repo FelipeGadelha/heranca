@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${HERANCA_DATASOURCE_URL:jdbc:postgresql://localhost:5433/heranca-db}
+    username: ${HERANCA_DATASOURCE_USERNAME:postgres}
+    password: ${HERANCA_DATASOURCE_PASSWORD:password}
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      pool-name: HerancaPool
+      connection-test-query: select now()
+      maximum-pool-size: 20
+      max-lifetime: 60000 # 10 min
+      minimum-idle: 10
+      connection-timeout: 250
+      idle-timeout: 100
+  jpa:
+    database: postgreSQl
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+#        defer-datasource-initialization: true
+        hbm2ddl.delimiter:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+      javax.persistence.schema-generation:
+      create-source: metadata
+      scripts:
+      create-target: create.sql
+      action: create
+    show-sql: true
+
