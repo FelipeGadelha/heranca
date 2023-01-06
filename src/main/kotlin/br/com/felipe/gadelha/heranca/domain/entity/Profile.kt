@@ -12,5 +12,4 @@ class Profile(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private var id: Long? = null,
     private val name: String? = null
-
 )

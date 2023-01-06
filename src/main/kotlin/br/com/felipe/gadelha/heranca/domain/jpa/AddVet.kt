@@ -31,22 +31,28 @@ object AddKitchen {
         profileRepository.save(profileVet)
         profileRepository.save(profileUser)
 
+//        user = User(name = "Isabella", tin = "tin", mutableSetOf(profileVet)),
+
         val vet = Vet(
             id = null,
-            user = User(name = "Isabella", tin = "tin", mutableSetOf(profileVet)),
+            name = "Isabella",
+            tin = "tin",
+            profiles = mutableSetOf(profileVet),
             crmv = "tin"
         )
         vetRepository.save(vet)
 
-        println("vet: $vet")
+        System.err.println("vet: $vet")
 
         val proprietor = Proprietor(
             id = null,
-            user = User(name = "Isabella", tin = "tin", mutableSetOf(profileUser)),
+            name = "Isabella",
+            tin = "tin",
+            profiles = mutableSetOf(profileUser),
             animal = "pug",
         )
         proprietorRepository.save(proprietor)
 
-        println("proprietario: $proprietor")
+        System.err.println("proprietario: $proprietor")
     }
 }
